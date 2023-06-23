@@ -1,0 +1,6 @@
+CARA MEMBUAT FOLDESR FLASK
+1. mkdir "folder"
+2. cd "folder yg dibuat"
+3. virtualenv "penamaan env bebas"
+4. env\Scripts\activate
+5.

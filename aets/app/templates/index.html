@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>AETS</title>
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='assets/extra-libs/c3/c3.min.css" rel="stylesheet') }}">
+    <link href="{{ url_for('static', filename='assets/libs/chartist/dist/chartist.min.css" rel="stylesheet') }}">
+    <link href="{{ url_for('static', filename='assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet') }}" />
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='dist/css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a href="index.html">
+                            <b class="logo-icon">
+                                <!-- Dark Logo icon -->
+                                <img src="assets/images/logo-icon.png" alt="AETS" class="dark-logo" />
+                        </a>
+                    </div>
+
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <form>
+                                    <div class="customize-input">
+                                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
+                                            type="search" placeholder="Search" aria-label="Search">
+                                        <i class="form-control-icon" data-feather="search"></i>
+                                    </div>
+                                </form>
+                            </a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
+                                    width="40">
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
+                                        class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
+                                        class="svg-icon"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- End Topbar header -->
+
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                                    class="hide-menu">Dashboard</span></a></li>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                                aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
+                                    class="hide-menu">Login
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
+                                href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
+                                    class="feather-icon"></i><span class="hide-menu">Register
+                                </span></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+        <div class="page-wrapper">
+            <div class="container">
+              <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Input Image</h4>
+                              <div class="row"> 
+                              <div class="col-lg-12">
+
+                                <form action="/submit" method="post" class="mt-4"   enctype="multipart/form-data">
+                                  <div class="row form-group">
+                                       <div class="col col-md-3"><label for="file-input" class=" form-control-label">File
+                                               input</label></div>
+                                       <div class="col-12 col-md-9"><input type="file" id="file-input" name="my_image"
+                                               class="form-control-file">
+                                       </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col"> 
+                                      <button type="submit" class="btn btn-primary  btn-block">Submit</button>
+                                    </div>
+                                  </div>
+                                </form>
+                            </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Clasification Sound</h4>
+                                <div class="card-body text-center">
+                                  {% if prediction %}
+                                  <img src="{{img_path}}" height="50%" width="50%">
+                                  <h4> Result : <i> {{prediction}} </i></h4>
+                
+                                  {% endif %}
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            
+            </div>
+
+            <footer class="footer text-center text-muted">
+                All Rights Reserved by Adminmart. Designed and Developed by <a>
+            </footer>
+        </div>
+    </div>
+
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{{ url_for('static', filename='assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="{{ url_for('static', filename='dist/js/app-style-switcher.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/feather.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/sidebarmenu.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ url_for('static', filename='dist/js/custom.min.js') }}"></script>
+    <!--This page JavaScript -->
+    <script src="{{ url_for('static', filename='assets/extra-libs/c3/d3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/c3/c3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/chartist/dist/chartist.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/pages/dashboards/dashboard1.min.js') }}"></script>
+</body>
+
+</html>
