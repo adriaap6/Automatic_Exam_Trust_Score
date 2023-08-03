@@ -1,3 +1,6 @@
+import os
+import magic
+
 from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -14,6 +17,15 @@ def result(request):
     context = {}
     if request.method == "POST":
         file = request.FILES["wavfile"]
+        if file is None:
+            context["error_message"] = "Please select a file."
+            return render(request, "home.html", context)
+        
+        file_type = magic.from_buffer(file.read(), mime=True)
+        if not file_type.startswith("audio/"):
+            context["error_message"] = "Invalid file type. Only audio files are allowed."
+            return render(request, "home.html", context)
+            
         tmp = file.name
         print("The File Name is --> ", tmp)
         fs = FileSystemStorage()

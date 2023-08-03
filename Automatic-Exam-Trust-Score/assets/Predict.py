@@ -45,8 +45,8 @@ def CNN2D_print_prediction(audio_path):
     return predicted_class[0]
 
 
-audio_dataset_path = "D:/UrbanSound8K/"
-path = audio_dataset_path + "fold8/103076-3-0-0.wav"
+audio_dataset_path = "C:/User/ASUS/Untitle Folder/Sample-TA/datasets/train/audio/"
+path = audio_dataset_path + "fold5/h 0025.wav"
 print("\nANN Model Output --> ", ANN_print_prediction(path))
 print("\nCNN1D Model Output --> ", CNN1D_print_prediction(path))
 print("\nCNN2D Model Output --> ", CNN2D_print_prediction(path))
