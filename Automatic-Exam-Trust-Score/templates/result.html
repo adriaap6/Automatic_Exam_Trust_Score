@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Results</title>
 		<style>
@@ -16,41 +17,8 @@
 			}
 
 			body {
-				color: #fff;
 				padding: 55px 25px;
 				background-color: #a6d2ff;
-			}
-
-			h1 {
-				font-weight: normal;
-				font-size: 50px;
-				font-weight: normal;
-				/*text-transform: uppercase;*/
-			}
-			h1 span {
-				font-size: 13px;
-				display: block;
-				padding-left: 4px;
-			}
-
-			p {
-				margin-top: 200px;
-			}
-			p a {
-				text-transform: uppercase;
-				text-decoration: none;
-				display: inline-block;
-				color: #fff;
-				padding: 5px 10px;
-				margin: 0 5px;
-				background-color: #b83729;
-				-moz-transition: all 0.2s ease-in;
-				-o-transition: all 0.2s ease-in;
-				-webkit-transition: all 0.2s ease-in;
-				transition: all 0.2s ease-in;
-			}
-			p a:hover {
-				background-color: #ab3326;
 			}
 
 			.custom-file-upload-hidden {
@@ -116,10 +84,72 @@
 			.file-upload-button:hover {
 				background-color: #a6d2ff;
 			}
+			h1{
+			 color: black;
+			}
 		</style>
 	</head>
 	<body>
-		<center>
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">
+						<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+						Bootstrap
+					  </a>
+				  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					 
+					</ul>
+					<form class="d-flex">
+					  <a  href="/" class="btn btn-primary" type="submit">Kembali</a>
+					</form>
+				  </div>
+				</div>
+			  </nav>
+			  
+			  <div class="mt-2">
+				<div class="card text-center">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="card text-center">
+									<div class="card-header"><span>Header</span></div>
+									<div class="card-body">
+										<h1 >ANN Has Predicted that {{ANN_Prediction}}</h1>
+									</div>
+								</div>
+							</div>	
+							<div class="col-lg-4">
+								<div class="card text-center">
+									<div class="card-header"><span>Header</span></div>
+									<div class="card-body">
+										<h1>CNN1D Has Predicted that {{CNN1D_Prediction}}</h1>
+									</div>
+								</div>
+							</div>	
+							<div class="col-lg-4">
+								<div class="card text-center">
+									<div class="card-header"><span>Header</span></div>
+									<div class="card-body">
+										<h1>CNN2D Has Predicted that {{CNN2D_Prediction}}</h1>
+									</div>
+								</div>
+							</div>	
+						</div>	
+					</div>
+				</div>
+			  </div>
+			  <nav class="navbar fixed-bottom navbar-light bg-light">
+				<div class="container-fluid">
+				  <a class="navbar-brand" href="#">Fixed bottom</a>
+				</div>
+			  </nav>
+		</div>
+		{% comment %} <center>
 			<br />
 			<br />
 			<br />
@@ -135,7 +165,7 @@
 			<br />
 			<h1>CNN2D Has Predicted that {{CNN2D_Prediction}}</h1>
 			<br />
-		</center>
+		</center> {% endcomment %}
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="../static/js/script.js"></script> -->

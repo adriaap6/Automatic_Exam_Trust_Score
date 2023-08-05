@@ -16,7 +16,7 @@ def home(request):
 def result(request):
     context = {}
     if request.method == "POST":
-        file = request.FILES["wavfile"]
+        file = request.FILES.get("wavfile")
         if file is None:
             context["error_message"] = "Please select a file."
             return render(request, "home.html", context)
@@ -31,11 +31,13 @@ def result(request):
         fs = FileSystemStorage()
         name = fs.save(file.name, file)
         audio_path = str(media_dir) + str(name)
-        print("File Saved and it path is --> ", str(media_dir) + str(name))
+        print("File Saved and its path is --> ", str(media_dir) + str(name))
         context["ANN_Prediction"] = ANN_print_prediction(audio_path)
         context["CNN1D_Prediction"] = CNN1D_print_prediction(audio_path)
         context["CNN2D_Prediction"] = CNN2D_print_prediction(audio_path)
         print("ANN Predicted --> ", ANN_print_prediction(audio_path))
         print("CNN1D Predicted --> ", CNN1D_print_prediction(audio_path))
         print("CNN2D Predicted --> ", CNN2D_print_prediction(audio_path))
-    return render(request, "result.html", context)
+        return render(request, "result.html", context)
+    else:
+        return render(request, "home.html")
